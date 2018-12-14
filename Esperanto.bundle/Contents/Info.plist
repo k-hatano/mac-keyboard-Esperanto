@@ -41,5 +41,12 @@
       <key>TISIntendedLanguage</key>
       <string>eo</string>
     </dict>
+    <key>KLInfo_Esperanto_JIS_Keyboard</key>
+    <dict>
+      <key>TISInputSourceID</key>
+      <string>jakwings.keylayout.Esperanto_JIS_Keyboard</string>
+      <key>TISIntendedLanguage</key>
+      <string>eo</string>
+    </dict>
   </dict>
 </plist>
