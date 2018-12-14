@@ -21,7 +21,7 @@
   -       j + x/X = ĵ, J + x/X = Ĵ
   -       s + x/X = ŝ, S + x/X = Ŝ
   -       u + x/X = ŭ, U + x/X = Ŭ
-  -   * Use ESC or Tab or irrelevant keys to cancel any incomplete combination:
+  -   * Use ESC or Tab (or Shift + 0, _ if you use JIS keyboard) or irrelevant keys to cancel any incomplete combination:
   -       c + Tab = c, C + Tab = C
   -       g + Tab = g, G + Tab = G
   -       h + Tab = h, H + Tab = H
