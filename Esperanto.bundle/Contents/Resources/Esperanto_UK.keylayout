@@ -34,7 +34,7 @@
   -   Copyright © 2015 Jak Wings
   -   All files are released to the public domain.
   -
-  - Last update: July 21, 2017
+  - Last update: January 15, 2019
   -->
 
 <!--
@@ -51,7 +51,7 @@
   -
   - See: https://developer.apple.com/library/mac/technotes/tn2056/_index.html
   -->
-<keyboard group="0" id="2016" maxout="1" name="Esperanto_UK"><!-- { -->
+<keyboard group="0" id="2016" name="Esperanto_UK"><!-- { -->
 
   <!--
     - <layout> elements collectively define which <modifierMap> and <keyMapSet>
@@ -96,13 +96,7 @@
     -           ~ Optional keys are suffixed with a question mark "?".
     -           ~ See: https://support.apple.com/en-us/HT201236
     -->
-  <modifierMap id="SpecialModifiers" defaultIndex="0"><!-- { -->
-    <!-- Special Keys -->
-    <keyMapSelect mapIndex="0">
-      <modifier keys="anyShift? anyOption? anyControl? command? caps?"/>
-    </keyMapSelect>
-  </modifierMap>
-  <modifierMap id="CommonModifiers" defaultIndex="0">
+  <modifierMap id="CommonModifiers" defaultIndex="7">
     <!-- Normal Characters -->
     <keyMapSelect mapIndex="0">
       <modifier keys=""/>
@@ -131,9 +125,25 @@
     <keyMapSelect mapIndex="6">
       <modifier keys="anyShift anyOption caps?"/>
     </keyMapSelect>
-    <!-- Document Shortcuts -->
+    <!-- Application Shortcuts -->
     <keyMapSelect mapIndex="7">
-      <modifier keys="anyShift? anyOption? anyControl caps?"/>
+      <modifier keys="command caps?"/>
+    </keyMapSelect>
+    <keyMapSelect mapIndex="8">
+      <modifier keys="anyShift command caps?"/>
+    </keyMapSelect>
+    <keyMapSelect mapIndex="9">
+      <modifier keys="anyOption command caps?"/>
+    </keyMapSelect>
+    <keyMapSelect mapIndex="10">
+      <modifier keys="anyShift anyOption command caps?"/>
+    </keyMapSelect>
+    <!-- Document Shortcuts -->
+    <keyMapSelect mapIndex="11">
+      <modifier keys="anyOption? anyControl command? caps?"/>
+    </keyMapSelect>
+    <keyMapSelect mapIndex="12">
+      <modifier keys="anyShift anyOption? anyControl command? caps?"/>
     </keyMapSelect>
   </modifierMap><!-- } -->
 
@@ -171,63 +181,6 @@
     -             ~ See: http://cldr.unicode.org/index/charts/keyboards
     -   action: ? ~ The identifier of the action to trigger.
     -->
-  <keyMapSet id="SpecialKeymaps"><!-- { -->
-    <keyMap index="0"><!-- { -->
-      <!-- These keycodes are independent of keyboard layouts. { -->
-      <key code="36" output="&#x000D;"/><!-- Return -->
-      <key code="48" output="&#x0009;"/><!-- Tab -->
-      <key code="49" output="&#x0020;"/><!-- Space -->
-      <key code="51" output="&#x007F;"/><!-- Delete -->
-      <key code="53" output="&#x001B;"/><!-- Escape -->
-      <key code="55" output=""/><!-- Command -->
-      <key code="56" output=""/><!-- Shift -->
-      <key code="57" output=""/><!-- CapsLock -->
-      <key code="58" output=""/><!-- Option -->
-      <key code="59" output=""/><!-- Control -->
-      <key code="60" output=""/><!-- RightShift -->
-      <key code="61" output=""/><!-- RightOption -->
-      <key code="62" output=""/><!-- RightControl -->
-      <key code="63" output=""/><!-- Function -->
-      <key code="64" output="&#xF714;"/><!-- F17 -->
-      <key code="72" output=""/><!-- VolumeUp -->
-      <key code="73" output=""/><!-- VolumeDown -->
-      <key code="74" output=""/><!-- Mute -->
-      <key code="79" output="&#xF715;"/><!-- F18 -->
-      <key code="80" output="&#xF716;"/><!-- F19 -->
-      <key code="90" output="&#xF717;"/><!-- F20 -->
-      <key code="96" output="&#xF708;"/><!-- F5 -->
-      <key code="97" output="&#xF709;"/><!-- F6 -->
-      <key code="98" output="&#xF70A;"/><!-- F7 -->
-      <key code="99" output="&#xF706;"/><!-- F3 -->
-      <key code="100" output="&#xF70B;"/><!-- F8 -->
-      <key code="101" output="&#xF70C;"/><!-- F9 -->
-      <key code="103" output="&#xF70E;"/><!-- F11 -->
-      <key code="105" output="&#xF710;"/><!-- F13: Print Screen -->
-      <key code="106" output="&#xF713;"/><!-- F16 -->
-      <key code="107" output="&#xF711;"/><!-- F14: Scroll Lock -->
-      <key code="109" output="&#xF70D;"/><!-- F10 -->
-      <key code="111" output="&#xF70F;"/><!-- F12 -->
-      <key code="113" output="&#xF712;"/><!-- F15: Pause/Break -->
-      <key code="114" output="&#xF746;"/><!-- Help: Insert -->
-      <key code="115" output="&#xF729;"/><!-- Home -->
-      <key code="116" output="&#xF72C;"/><!-- PageUp -->
-      <key code="117" output="&#xF728;"/><!-- ForwardDelete -->
-      <key code="118" output="&#xF707;"/><!-- F4 -->
-      <key code="119" output="&#xF72B;"/><!-- End -->
-      <key code="120" output="&#xF705;"/><!-- F2 -->
-      <key code="121" output="&#xF72D;"/><!-- PageDown -->
-      <key code="122" output="&#xF704;"/><!-- F1 -->
-      <key code="123" output="&#xF702;"/><!-- LeftArrow -->
-      <key code="124" output="&#xF703;"/><!-- RightArrow -->
-      <key code="125" output="&#xF701;"/><!-- DownArrow -->
-      <key code="126" output="&#xF700;"/><!-- UpArrow -->
-      <!-- } -->
-      <!-- These keycodes are for JIS keyboards only. { -->
-      <key code="102" output=""/><!-- Eisu -->
-      <key code="104" output=""/><!-- Kana -->
-      <!-- } -->
-    </keyMap><!-- } -->
-  </keyMapSet><!-- } -->
   <keyMapSet id="CommonKeymaps"><!-- { -->
     <keyMap index="0"><!-- { -->
       <!-- These keycodes are dependent on the keyboard layout. { -->
@@ -369,7 +322,7 @@
       <!-- } -->
     </keyMap><!-- } -->
     <keyMap index="1" baseMapSet="CommonKeymaps" baseIndex="0"><!-- { -->
-      <!-- These keycodes are dependent on the keyboard layout. { -->
+      <!-- { -->
       <key code="0" action="A"/><!-- A -->
       <key code="1" action="S"/><!-- S -->
       <key code="2" action="D"/><!-- D -->
@@ -399,7 +352,7 @@
       <!-- } -->
     </keyMap><!-- } -->
     <keyMap index="2" baseMapSet="CommonKeymaps" baseIndex="0"><!-- { -->
-      <!-- These keycodes are dependent on the keyboard layout. { -->
+      <!-- { -->
       <key code="0" action="A"/><!-- A -->
       <key code="1" action="S"/><!-- S -->
       <key code="2" action="D"/><!-- D -->
@@ -446,6 +399,7 @@
       <key code="43" output="&#x003C;"/><!-- Comma -->
       <key code="44" output="?"/><!-- Slash -->
       <key code="47" output="&#x003E;"/><!-- Period -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
       <key code="50" output="~"/><!-- Grave -->
       <!-- } -->
       <!-- These keycodes are for ISO keyboards only. { -->
@@ -456,7 +410,7 @@
       <!-- } -->
     </keyMap><!-- } -->
     <keyMap index="3" baseMapSet="CommonKeymaps" baseIndex="0"><!-- { -->
-      <!-- These keycodes are dependent on the keyboard layout. { -->
+      <!-- { -->
       <key code="18" output="!"/><!-- 1 -->
       <key code="19" output="@"/><!-- 2 -->
       <key code="20" output="£"/><!-- 3 -->
@@ -477,6 +431,7 @@
       <key code="43" output="&#x003C;"/><!-- Comma -->
       <key code="44" output="?"/><!-- Slash -->
       <key code="47" output="&#x003E;"/><!-- Period -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
       <key code="50" output="~"/><!-- Grave -->
       <!-- } -->
       <!-- These keycodes are for ISO keyboards only. { -->
@@ -626,6 +581,7 @@
       <!-- } -->
     </keyMap><!-- } -->
     <keyMap index="5" baseMapSet="CommonKeymaps" baseIndex="4"><!-- { -->
+      <!-- { -->
       <key code="0" output="Å"/><!-- A -->
       <key code="1" output="Í"/><!-- S -->
       <key code="2" output="Î"/><!-- D -->
@@ -654,11 +610,13 @@
       <key code="46" action="Tilde"/><!-- M -->
       <key code="19" output="™"/><!-- 2 -->
       <key code="39" output="Æ"/><!-- Quote -->
+      <!-- } -->
       <!-- These keycodes are for JIS keyboards only. { -->
       <key code="93" output="«"/><!-- Yen -->
       <!-- } -->
     </keyMap><!-- } -->
     <keyMap index="6" baseMapSet="CommonKeymaps" baseIndex="4"><!-- { -->
+      <!-- { -->
       <key code="0" output="Å"/><!-- A -->
       <key code="1" output="Í"/><!-- S -->
       <key code="2" output="Î"/><!-- D -->
@@ -705,7 +663,9 @@
       <key code="45" action="Circumflex"/><!-- N -->
       <key code="46" action="Tilde"/><!-- M -->
       <key code="47" action="Breve"/><!-- Period -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
       <key code="50" output="Ÿ"/><!-- Grave -->
+      <!-- } -->
       <!-- These keycodes are for ISO keyboards only. { -->
       <key code="10" output="±"/><!-- Section -->
       <!-- } -->
@@ -714,7 +674,228 @@
       <key code="94" output="Ÿ"/><!-- Underscore -->
       <!-- } -->
     </keyMap><!-- } -->
-    <keyMap index="7" baseMapSet="SpecialKeymaps" baseIndex="0"><!-- { -->
+    <keyMap index="7"><!-- { -->
+      <!-- These keycodes are dependent on the keyboard layout. { -->
+      <key code="0" output="a"/><!-- A -->
+      <key code="1" output="s"/><!-- S -->
+      <key code="2" output="d"/><!-- D -->
+      <key code="3" output="f"/><!-- F -->
+      <key code="4" output="h"/><!-- H -->
+      <key code="5" output="g"/><!-- G -->
+      <key code="6" output="z"/><!-- Z -->
+      <key code="7" output="x"/><!-- X -->
+      <key code="8" output="c"/><!-- C -->
+      <key code="9" output="v"/><!-- V -->
+      <!-- skip 10 -->
+      <key code="11" output="b"/><!-- B -->
+      <key code="12" output="q"/><!-- Q -->
+      <key code="13" output="w"/><!-- W -->
+      <key code="14" output="e"/><!-- E -->
+      <key code="15" output="r"/><!-- R -->
+      <key code="16" output="y"/><!-- Y -->
+      <key code="17" output="t"/><!-- T -->
+      <key code="18" output="1"/><!-- 1 -->
+      <key code="19" output="2"/><!-- 2 -->
+      <key code="20" output="3"/><!-- 3 -->
+      <key code="21" output="4"/><!-- 4 -->
+      <key code="22" output="6"/><!-- 6 -->
+      <key code="23" output="5"/><!-- 5 -->
+      <key code="24" output="="/><!-- Equal -->
+      <key code="25" output="9"/><!-- 9 -->
+      <key code="26" output="7"/><!-- 7 -->
+      <key code="27" output="-"/><!-- Minus -->
+      <key code="28" output="8"/><!-- 8 -->
+      <key code="29" output="0"/><!-- 0 -->
+      <key code="30" output="]"/><!-- RightBracket -->
+      <key code="31" output="o"/><!-- O -->
+      <key code="32" output="u"/><!-- U -->
+      <key code="33" output="["/><!-- LeftBracket -->
+      <key code="34" output="i"/><!-- I -->
+      <key code="35" output="p"/><!-- P -->
+      <!-- skip 36 -->
+      <key code="37" output="l"/><!-- L -->
+      <key code="38" output="j"/><!-- J -->
+      <key code="39" output="&#x0027;"/><!-- Quote -->
+      <key code="40" output="k"/><!-- K -->
+      <key code="41" output=";"/><!-- Semicolon -->
+      <key code="42" output="\"/><!-- Backslash -->
+      <key code="43" output=","/><!-- Comma -->
+      <key code="44" output="/"/><!-- Slash -->
+      <key code="45" output="n"/><!-- N -->
+      <key code="46" output="m"/><!-- M -->
+      <key code="47" output="."/><!-- Period -->
+      <!-- skip 48-49 -->
+      <key code="50" output="`"/><!-- Grave -->
+      <!-- skip 51-64 -->
+      <key code="65" output="."/><!-- KeypadDecimal -->
+      <!-- skip 66 -->
+      <key code="67" output="*"/><!-- KeypadMultiply -->
+      <!-- skip 68 -->
+      <key code="69" output="+"/><!-- KeypadPlus -->
+      <!-- skip 70 -->
+      <key code="71" output="&#xF739;"/><!-- KeypadClear: Num Lock -->
+      <!-- skip 72-74 -->
+      <key code="75" output="/"/><!-- KeypadDivide -->
+      <key code="76" output="&#x0003;"/><!-- KeypadEnter -->
+      <!-- skip 77 -->
+      <key code="78" output="-"/><!-- KeypadMinus -->
+      <!-- skip 79-80 -->
+      <key code="81" output="="/><!-- KeypadEquals -->
+      <key code="82" output="0"/><!-- Keypad0 -->
+      <key code="83" output="1"/><!-- Keypad1 -->
+      <key code="84" output="2"/><!-- Keypad2 -->
+      <key code="85" output="3"/><!-- Keypad3 -->
+      <key code="86" output="4"/><!-- Keypad4 -->
+      <key code="87" output="5"/><!-- Keypad5 -->
+      <key code="88" output="6"/><!-- Keypad6 -->
+      <key code="89" output="7"/><!-- Keypad7 -->
+      <!-- skip 90 -->
+      <key code="91" output="8"/><!-- Keypad8 -->
+      <key code="92" output="9"/><!-- Keypad9 -->
+      <!-- } -->
+      <!-- These keycodes are independent of keyboard layouts. { -->
+      <key code="36" output="&#x000D;"/><!-- Return -->
+      <key code="48" output="&#x0009;"/><!-- Tab -->
+      <key code="49" output="&#x0020;"/><!-- Space -->
+      <key code="51" output="&#x007F;"/><!-- Delete -->
+      <key code="53" output="&#x001B;"/><!-- Escape -->
+      <key code="55" output=""/><!-- Command -->
+      <key code="56" output=""/><!-- Shift -->
+      <key code="57" output=""/><!-- CapsLock -->
+      <key code="58" output=""/><!-- Option -->
+      <key code="59" output=""/><!-- Control -->
+      <key code="60" output=""/><!-- RightShift -->
+      <key code="61" output=""/><!-- RightOption -->
+      <key code="62" output=""/><!-- RightControl -->
+      <key code="63" output=""/><!-- Function -->
+      <key code="64" output="&#xF714;"/><!-- F17 -->
+      <key code="72" output=""/><!-- VolumeUp -->
+      <key code="73" output=""/><!-- VolumeDown -->
+      <key code="74" output=""/><!-- Mute -->
+      <key code="79" output="&#xF715;"/><!-- F18 -->
+      <key code="80" output="&#xF716;"/><!-- F19 -->
+      <key code="90" output="&#xF717;"/><!-- F20 -->
+      <key code="96" output="&#xF708;"/><!-- F5 -->
+      <key code="97" output="&#xF709;"/><!-- F6 -->
+      <key code="98" output="&#xF70A;"/><!-- F7 -->
+      <key code="99" output="&#xF706;"/><!-- F3 -->
+      <key code="100" output="&#xF70B;"/><!-- F8 -->
+      <key code="101" output="&#xF70C;"/><!-- F9 -->
+      <key code="103" output="&#xF70E;"/><!-- F11 -->
+      <key code="105" output="&#xF710;"/><!-- F13: Print Screen -->
+      <key code="106" output="&#xF713;"/><!-- F16 -->
+      <key code="107" output="&#xF711;"/><!-- F14: Scroll Lock -->
+      <key code="109" output="&#xF70D;"/><!-- F10 -->
+      <key code="111" output="&#xF70F;"/><!-- F12 -->
+      <key code="113" output="&#xF712;"/><!-- F15: Pause/Break -->
+      <key code="114" output="&#xF746;"/><!-- Help: Insert -->
+      <key code="115" output="&#xF729;"/><!-- Home -->
+      <key code="116" output="&#xF72C;"/><!-- PageUp -->
+      <key code="117" output="&#xF728;"/><!-- ForwardDelete -->
+      <key code="118" output="&#xF707;"/><!-- F4 -->
+      <key code="119" output="&#xF72B;"/><!-- End -->
+      <key code="120" output="&#xF705;"/><!-- F2 -->
+      <key code="121" output="&#xF72D;"/><!-- PageDown -->
+      <key code="122" output="&#xF704;"/><!-- F1 -->
+      <key code="123" output="&#xF702;"/><!-- LeftArrow -->
+      <key code="124" output="&#xF703;"/><!-- RightArrow -->
+      <key code="125" output="&#xF701;"/><!-- DownArrow -->
+      <key code="126" output="&#xF700;"/><!-- UpArrow -->
+      <!-- } -->
+      <!-- These keycodes are for ISO keyboards only. { -->
+      <key code="10" output="§"/><!-- Section -->
+      <!-- } -->
+      <!-- These keycodes are for JIS keyboards only. { -->
+      <key code="93" output="¥"/><!-- Yen -->
+      <key code="94" output="_"/><!-- Underscore -->
+      <key code="95" output=","/><!-- KeypadComma -->
+      <key code="102" output=""/><!-- Eisu -->
+      <key code="104" output=""/><!-- Kana -->
+      <!-- } -->
+    </keyMap><!-- } -->
+    <keyMap index="8" baseMapSet="CommonKeymaps" baseIndex="7"><!-- { -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
+    </keyMap><!-- } -->
+    <keyMap index="9" baseMapSet="CommonKeymaps" baseIndex="4"><!-- { -->
+      <!-- { -->
+      <key code="4" output="˙"/><!-- H -->
+      <key code="14" output="´"/><!-- E -->
+      <key code="32" output="¨"/><!-- U -->
+      <key code="34" output="^"/><!-- I -->
+      <key code="40" output="˚"/><!-- K -->
+      <key code="45" output="~"/><!-- N -->
+      <key code="50" output="`"/><!-- Grave -->
+      <!-- } -->
+      <!-- These keycodes are independent of keyboard layouts. { -->
+      <key code="48" output="&#x0009;"/><!-- Tab -->
+      <key code="49" output="&#x00A0;"/><!-- Space -->
+      <!-- } -->
+      <!-- These keycodes are for JIS keyboards only. { -->
+      <key code="94" output="`"/><!-- Underscore -->
+      <!-- } -->
+    </keyMap><!-- } -->
+    <keyMap index="10" baseMapSet="CommonKeymaps" baseIndex="4"><!-- { -->
+      <!-- { -->
+      <key code="0" output="Å"/><!-- A -->
+      <key code="1" output="Í"/><!-- S -->
+      <key code="2" output="Î"/><!-- D -->
+      <key code="3" output="Ï"/><!-- F -->
+      <key code="4" output="Ó"/><!-- H -->
+      <key code="5" output="Ì"/><!-- G -->
+      <key code="6" output="Û"/><!-- Z -->
+      <key code="7" output="Ù"/><!-- X -->
+      <key code="8" output="Ç"/><!-- C -->
+      <key code="9" output="◊"/><!-- V -->
+      <key code="11" output="ı"/><!-- B -->
+      <key code="12" output="Œ"/><!-- Q -->
+      <key code="13" output="„"/><!-- W -->
+      <key code="14" output="‰"/><!-- E -->
+      <key code="15" output="Â"/><!-- R -->
+      <key code="16" output="Á"/><!-- Y -->
+      <key code="17" output="Ê"/><!-- T -->
+      <key code="18" output="⁄"/><!-- 1 -->
+      <key code="19" output="™"/><!-- 2 -->
+      <key code="20" output="‹"/><!-- 3 -->
+      <key code="21" output="›"/><!-- 4 -->
+      <key code="22" output="ﬂ"/><!-- 6 -->
+      <key code="23" output="ﬁ"/><!-- 5 -->
+      <key code="24" output="±"/><!-- Equal -->
+      <key code="25" output="·"/><!-- 9 -->
+      <key code="26" output="‡"/><!-- 7 -->
+      <key code="27" output="—"/><!-- Minus -->
+      <key code="28" output="°"/><!-- 8 -->
+      <key code="29" output="‚"/><!-- 0 -->
+      <key code="30" output="’"/><!-- RightBracket -->
+      <key code="31" output="Ø"/><!-- O -->
+      <key code="32" output="Ë"/><!-- U -->
+      <key code="33" output="”"/><!-- LeftBracket -->
+      <key code="34" output="È"/><!-- I -->
+      <key code="35" output="∏"/><!-- P -->
+      <key code="37" output="Ò"/><!-- L -->
+      <key code="38" output="Ô"/><!-- J -->
+      <key code="39" output="Æ"/><!-- Quote -->
+      <key code="40" output=""/><!-- K -->
+      <key code="41" output="Ú"/><!-- Semicolon -->
+      <key code="42" output="»"/><!-- Backslash -->
+      <key code="43" output="¯"/><!-- Comma -->
+      <key code="44" output="¿"/><!-- Slash -->
+      <key code="45" output="ˆ"/><!-- N -->
+      <key code="46" output="˜"/><!-- M -->
+      <key code="47" output="˘"/><!-- Period -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
+      <key code="49" output="&#x00A0;"/><!-- Space -->
+      <key code="50" output="Ÿ"/><!-- Grave -->
+      <!-- } -->
+      <!-- These keycodes are for ISO keyboards only. { -->
+      <key code="10" output="±"/><!-- Section -->
+      <!-- } -->
+      <!-- These keycodes are for JIS keyboards only. { -->
+      <key code="93" output="»"/><!-- Yen -->
+      <key code="94" output="Ÿ"/><!-- Underscore -->
+      <!-- } -->
+    </keyMap><!-- } -->
+    <keyMap index="11"><!-- { -->
+      <!-- These keycodes are dependent on the keyboard layout. { -->
       <key code="0" output="&#x0001;"/><!-- A -->
       <key code="1" output="&#x0013;"/><!-- S -->
       <key code="2" output="&#x0004;"/><!-- D -->
@@ -725,6 +906,7 @@
       <key code="7" output="&#x0018;"/><!-- X -->
       <key code="8" output="&#x0003;"/><!-- C -->
       <key code="9" output="&#x0016;"/><!-- V -->
+      <!-- skip 10 -->
       <key code="11" output="&#x0002;"/><!-- B -->
       <key code="12" output="&#x0011;"/><!-- Q -->
       <key code="13" output="&#x0017;"/><!-- W -->
@@ -732,23 +914,127 @@
       <key code="15" output="&#x0012;"/><!-- R -->
       <key code="16" output="&#x0019;"/><!-- Y -->
       <key code="17" output="&#x0014;"/><!-- T -->
+      <key code="18" output="1"/><!-- 1 -->
+      <key code="19" output="2"/><!-- 2 -->
+      <key code="20" output="3"/><!-- 3 -->
+      <key code="21" output="4"/><!-- 4 -->
+      <key code="22" output="6"/><!-- 6 -->
+      <key code="23" output="5"/><!-- 5 -->
+      <key code="24" output="="/><!-- Equal -->
+      <key code="25" output="9"/><!-- 9 -->
+      <key code="26" output="7"/><!-- 7 -->
+      <key code="27" output="&#x001F;"/><!-- Minus -->
+      <key code="28" output="8"/><!-- 8 -->
+      <key code="29" output="0"/><!-- 0 -->
+      <key code="30" output="&#x001D;"/><!-- RightBracket -->
       <key code="31" output="&#x000F;"/><!-- O -->
       <key code="32" output="&#x0015;"/><!-- U -->
+      <key code="33" output="&#x001B;"/><!-- LeftBracket -->
       <key code="34" output="&#x0009;"/><!-- I -->
       <key code="35" output="&#x0010;"/><!-- P -->
+      <!-- skip 36 -->
       <key code="37" output="&#x000C;"/><!-- L -->
       <key code="38" output="&#x000A;"/><!-- J -->
+      <key code="39" output="&#x0027;"/><!-- Quote -->
       <key code="40" output="&#x000B;"/><!-- K -->
+      <key code="41" output=";"/><!-- Semicolon -->
+      <key code="42" output="&#x001C;"/><!-- Backslash -->
+      <key code="43" output=","/><!-- Comma -->
+      <key code="44" output="/"/><!-- Slash -->
       <key code="45" output="&#x000E;"/><!-- N -->
       <key code="46" output="&#x000D;"/><!-- M -->
-      <key code="27" output="&#x001F;"/><!-- Minus -->
-      <key code="30" output="&#x001D;"/><!-- RightBracket -->
-      <key code="33" output="&#x001B;"/><!-- LeftBracket -->
-      <key code="42" output="&#x001C;"/><!-- Backslash -->
+      <key code="47" output="."/><!-- Period -->
+      <!-- skip 48-49 -->
+      <key code="50" output="`"/><!-- Grave -->
+      <!-- skip 51-64 -->
+      <key code="65" output="."/><!-- KeypadDecimal -->
+      <!-- skip 66 -->
+      <key code="67" output="*"/><!-- KeypadMultiply -->
+      <!-- skip 68 -->
+      <key code="69" output="+"/><!-- KeypadPlus -->
+      <!-- skip 70 -->
+      <key code="71" output="&#xF739;"/><!-- KeypadClear: Num Lock -->
+      <!-- skip 72-74 -->
+      <key code="75" output="/"/><!-- KeypadDivide -->
+      <key code="76" output="&#x0003;"/><!-- KeypadEnter -->
+      <!-- skip 77 -->
+      <key code="78" output="-"/><!-- KeypadMinus -->
+      <!-- skip 79-80 -->
+      <key code="81" output="="/><!-- KeypadEquals -->
+      <key code="82" output="0"/><!-- Keypad0 -->
+      <key code="83" output="1"/><!-- Keypad1 -->
+      <key code="84" output="2"/><!-- Keypad2 -->
+      <key code="85" output="3"/><!-- Keypad3 -->
+      <key code="86" output="4"/><!-- Keypad4 -->
+      <key code="87" output="5"/><!-- Keypad5 -->
+      <key code="88" output="6"/><!-- Keypad6 -->
+      <key code="89" output="7"/><!-- Keypad7 -->
+      <!-- skip 90 -->
+      <key code="91" output="8"/><!-- Keypad8 -->
+      <key code="92" output="9"/><!-- Keypad9 -->
+      <!-- } -->
+      <!-- These keycodes are independent of keyboard layouts. { -->
+      <key code="36" output="&#x000D;"/><!-- Return -->
+      <key code="48" output="&#x0009;"/><!-- Tab -->
       <key code="49" output="&#x0000;"/><!-- Space -->
+      <key code="51" output="&#x007F;"/><!-- Delete -->
+      <key code="53" output="&#x001B;"/><!-- Escape -->
+      <key code="55" output=""/><!-- Command -->
+      <key code="56" output=""/><!-- Shift -->
+      <key code="57" output=""/><!-- CapsLock -->
+      <key code="58" output=""/><!-- Option -->
+      <key code="59" output=""/><!-- Control -->
+      <key code="60" output=""/><!-- RightShift -->
+      <key code="61" output=""/><!-- RightOption -->
+      <key code="62" output=""/><!-- RightControl -->
+      <key code="63" output=""/><!-- Function -->
+      <key code="64" output="&#xF714;"/><!-- F17 -->
+      <key code="72" output=""/><!-- VolumeUp -->
+      <key code="73" output=""/><!-- VolumeDown -->
+      <key code="74" output=""/><!-- Mute -->
+      <key code="79" output="&#xF715;"/><!-- F18 -->
+      <key code="80" output="&#xF716;"/><!-- F19 -->
+      <key code="90" output="&#xF717;"/><!-- F20 -->
+      <key code="96" output="&#xF708;"/><!-- F5 -->
+      <key code="97" output="&#xF709;"/><!-- F6 -->
+      <key code="98" output="&#xF70A;"/><!-- F7 -->
+      <key code="99" output="&#xF706;"/><!-- F3 -->
+      <key code="100" output="&#xF70B;"/><!-- F8 -->
+      <key code="101" output="&#xF70C;"/><!-- F9 -->
+      <key code="103" output="&#xF70E;"/><!-- F11 -->
+      <key code="105" output="&#xF710;"/><!-- F13: Print Screen -->
+      <key code="106" output="&#xF713;"/><!-- F16 -->
+      <key code="107" output="&#xF711;"/><!-- F14: Scroll Lock -->
+      <key code="109" output="&#xF70D;"/><!-- F10 -->
+      <key code="111" output="&#xF70F;"/><!-- F12 -->
+      <key code="113" output="&#xF712;"/><!-- F15: Pause/Break -->
+      <key code="114" output="&#xF746;"/><!-- Help: Insert -->
+      <key code="115" output="&#xF729;"/><!-- Home -->
+      <key code="116" output="&#xF72C;"/><!-- PageUp -->
+      <key code="117" output="&#xF728;"/><!-- ForwardDelete -->
+      <key code="118" output="&#xF707;"/><!-- F4 -->
+      <key code="119" output="&#xF72B;"/><!-- End -->
+      <key code="120" output="&#xF705;"/><!-- F2 -->
+      <key code="121" output="&#xF72D;"/><!-- PageDown -->
+      <key code="122" output="&#xF704;"/><!-- F1 -->
+      <key code="123" output="&#xF702;"/><!-- LeftArrow -->
+      <key code="124" output="&#xF703;"/><!-- RightArrow -->
+      <key code="125" output="&#xF701;"/><!-- DownArrow -->
+      <key code="126" output="&#xF700;"/><!-- UpArrow -->
+      <!-- } -->
       <!-- These keycodes are for ISO keyboards only. { -->
       <key code="10" output="0"/><!-- Section -->
       <!-- } -->
+      <!-- These keycodes are for JIS keyboards only. { -->
+      <key code="93" output="¥"/><!-- Yen -->
+      <key code="94" output="_"/><!-- Underscore -->
+      <key code="95" output=","/><!-- KeypadComma -->
+      <key code="102" output=""/><!-- Eisu -->
+      <key code="104" output=""/><!-- Kana -->
+      <!-- } -->
+    </keyMap><!-- } -->
+    <keyMap index="12" baseMapSet="CommonKeymaps" baseIndex="11"><!-- { -->
+      <key code="48" output="&#x0019;"/><!-- Tab -->
     </keyMap><!-- } -->
   </keyMapSet><!-- } -->
 
