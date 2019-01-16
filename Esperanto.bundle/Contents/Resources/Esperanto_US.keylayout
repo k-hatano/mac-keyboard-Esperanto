@@ -465,8 +465,8 @@
       <key code="19" output="™"/><!-- 2 -->
       <key code="20" output="£"/><!-- 3 -->
       <key code="21" output="¢"/><!-- 4 -->
-      <key code="22" output="∞"/><!-- 6 -->
-      <key code="23" output="§"/><!-- 5 -->
+      <key code="22" output="§"/><!-- 6 -->
+      <key code="23" output="∞"/><!-- 5 -->
       <key code="24" output="≠"/><!-- Equal -->
       <key code="25" output="ª"/><!-- 9 -->
       <key code="26" output="¶"/><!-- 7 -->
